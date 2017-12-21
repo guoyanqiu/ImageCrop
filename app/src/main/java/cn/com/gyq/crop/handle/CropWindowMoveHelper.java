@@ -24,6 +24,7 @@ class CropWindowMoveHelper extends CropWindowScaleHelper {
                           float y,
                           @NonNull RectF imageRect) {
 
+        //获取裁剪框的四个坐标位置
         float left = Edge.LEFT.getCoordinate();
         float top = Edge.TOP.getCoordinate();
         float right = Edge.RIGHT.getCoordinate();

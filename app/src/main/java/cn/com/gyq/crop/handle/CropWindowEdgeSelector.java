@@ -16,6 +16,8 @@ import cn.com.gyq.crop.edge.Edge;
  */
 public enum CropWindowEdgeSelector {
 
+    /////////////////////图A///////////////////////////
+
     //左上角：此时是控制裁剪框最上边和最左边的两条边
     TOP_LEFT(new CropWindowScaleHelper(Edge.TOP, Edge.LEFT)),
 
@@ -27,6 +29,8 @@ public enum CropWindowEdgeSelector {
 
     //右下角：此时是控制裁剪框最下边和最右边的两条边
     BOTTOM_RIGHT(new CropWindowScaleHelper(Edge.BOTTOM, Edge.RIGHT)),
+
+     //////////////////图C/////////////
 
     //仅控制裁剪框左边线
     LEFT(new CropWindowScaleHelper(null, Edge.LEFT)),
@@ -40,6 +44,9 @@ public enum CropWindowEdgeSelector {
     //仅控制裁剪框下边线
     BOTTOM(new CropWindowScaleHelper(Edge.BOTTOM, null)),
 
+    //////////////图B//////////////
+
+    //中间位置
     CENTER(new CropWindowMoveHelper());
 
 

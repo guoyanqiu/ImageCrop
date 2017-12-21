@@ -35,6 +35,7 @@ public class CatchEdgeUtil {
 
         //最近距离默认正无穷大
         float nearestDistance = Float.POSITIVE_INFINITY;
+        //////////判断手指是否在图二种的A位置：四个角之一/////////////////
 
         //计算手指距离左上角的距离
         final float distanceToTopLeft = calculateDistance(x, y, left, top);
@@ -70,19 +71,8 @@ public class CatchEdgeUtil {
             return nearestCropWindowEdgeSelector;
         }
 
-        /*-
-                 ---------------------
-                 |          top       |
-          -------------------------------------
-          |      |                    |       |
-          |      |                    |       |
-          | left |       裁剪框        | right |
-          |      |                    |       |
-          |      |                    |       |
-          -------------------------------------
-                 |     bottom         |
-                 ---------------------
-         */
+
+        //////////判断手指是否在图二种的C位置：四个边的某条边/////////////////
         if (CatchEdgeUtil.isInHorizontalTargetZone(x, y, left, right, top, targetRadius)) {
             return CropWindowEdgeSelector.TOP;//说明手指在裁剪框top区域
         } else if (CatchEdgeUtil.isInHorizontalTargetZone(x, y, left, right, bottom, targetRadius)) {
@@ -94,11 +84,12 @@ public class CatchEdgeUtil {
         }
 
 
-        //判断手指是否是在裁剪框的范围之内
+        //////////判断手指是否在图二种的B位置：裁剪框的中间/////////////////
         if (isWithinBounds(x, y, left, top, right, bottom)) {
             return CropWindowEdgeSelector.CENTER;
         }
 
+        ////////手指位于裁剪框的D位置，此时移动手指什么都不做/////////////
         return null;
     }
 

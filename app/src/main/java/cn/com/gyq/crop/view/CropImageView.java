@@ -145,6 +145,7 @@ public class CropImageView extends ImageView {
         }
     }
 
+
     /**
      * 获取裁剪好的BitMap
      */
@@ -223,9 +224,11 @@ public class CropImageView extends ImageView {
      */
     private void initCropWindow(@NonNull RectF bitmapRect) {
 
+        //裁剪框距离图片左右的padding值
         final float horizontalPadding = 0.01f * bitmapRect.width();
         final float verticalPadding = 0.01f * bitmapRect.height();
 
+        //初始化裁剪框上下左右四条边
         Edge.LEFT.initCoordinate(bitmapRect.left + horizontalPadding);
         Edge.TOP.initCoordinate(bitmapRect.top + verticalPadding);
         Edge.RIGHT.initCoordinate(bitmapRect.right - horizontalPadding);
@@ -303,7 +306,6 @@ public class CropImageView extends ImageView {
 
     /**
      * 处理手指按下事件
-     *
      * @param x 手指按下时水平方向的坐标
      * @param y 手指按下时竖直方向的坐标
      */
@@ -315,6 +317,7 @@ public class CropImageView extends ImageView {
         final float right = Edge.RIGHT.getCoordinate();
         final float bottom = Edge.BOTTOM.getCoordinate();
 
+        //获取手指所在位置位于图二种的A，B，C，D位置种哪一种
         mPressedCropWindowEdgeSelector = CatchEdgeUtil.getPressedHandle(x, y, left, top, right, bottom, mScaleRadius);
 
         if (mPressedCropWindowEdgeSelector != null) {
